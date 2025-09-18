@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+<body>
+    <div class="root">
+        <h3>{{name}}</h3>
+        <h3>{{address}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip=false
+        const vm=new Vue({
+            el:".root",
+            data:{
+                name:"尚硅谷",
+                address:"湖南工程学院"
+            }
+        })
+    </script>
+</body>
+</html>

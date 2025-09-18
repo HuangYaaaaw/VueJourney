@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>今天天气很{{weather}}</h1>
+        <button @click="change">点击切换天气</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data: {
+                ishot: true
+            },
+            methods: {
+                change() {
+                    this.ishot = !this.ishot
+                }
+            },
+            computed: {
+                weather: {
+                    get() {
+                        return this.ishot ? "炎热" : "凉爽"
+                    }
+                }
+            },
+        })
+        vm.$watch('ishot',{
+                    handler(newvalue,oldvalue){
+                        console.log("发生了改变" + newvalue + oldvalue);
+                        
+                    }
+                })
+    </script>
+</body>
+
+</html>

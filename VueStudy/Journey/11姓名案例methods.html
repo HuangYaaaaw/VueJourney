@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <p>姓:<input type="text" v-model="firstName"></p>
+        <!-- v-model相当于value -->
+        <p>名:<input type="text" v-model="lastName"></p>
+        <p>全名:{{fullname()}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: ".root",
+            data: {
+                firstName: "张",
+                lastName: "三"
+            },
+            methods:{
+                // methods当中的this永远是指vue实例对象vm
+                fullname(){
+                    return this.firstName+"-"+this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj1={x:100}
+        const obj2={y:200}
+        Object.defineProperty(obj2,"x",{
+            get:function(){
+                return obj1.x
+            },
+            set:function(value){
+                obj1.x=value//相当于java里面的构造方法
+            }//obj2.x是由两个函数组成的，我给obj2.x赋值，那么就调用set函数,如果没有赋值，就是直接调用get函数
+        })
+    </script>
+</body>
+</html>

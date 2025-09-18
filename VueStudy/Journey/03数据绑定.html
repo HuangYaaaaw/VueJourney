@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+<body>
+    <div id="root">
+        <input type="text" :value="channel1">
+        <input type="text" v-model="channel1">
+        <script>
+            new Vue({
+                el:"#root",
+                data:{
+                    channel1:"hello"                
+                 }
+            })
+        </script>
+    </div>
+</body>
+</html>

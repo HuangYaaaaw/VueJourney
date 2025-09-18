@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <p>姓:<input type="text" v-model="firstName"></p>//
+        <p>名:<input type="text" v-model="lastName"></p>
+        <p><i>全名:</i>{{firstName.slice(0,3)}}-{{lastName}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:".root",
+            data:{
+                firstName:"张",
+                lastName:"三"
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

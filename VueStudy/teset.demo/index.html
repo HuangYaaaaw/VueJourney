@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 环境测试</title>
+    <script src="../vue.global.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // 使用 Vue 的 CDN 版本
+        const { createApp, ref } = Vue;
+        
+        // 直接在同一个文件中定义组件，不导入外部 .vue 文件
+        const App = {
+            setup() {
+                const title = ref('🎉 Vue 环境测试成功！');
+                const count = ref(0);
+                const message = ref('你好 Volar！');
+                
+                return {
+                    title,
+                    count,
+                    message
+                };
+            },
+            template: `
+                <div class="test-container">
+                    <h1>{{ title }}</h1>
+                    <p>这是一个测试文件，用于验证 Volar 和 Vue 环境是否正常工作</p>
+                    <button @click="count++">点击计数: {{ count }}</button>
+                    <p>消息: <input v-model="message"></p>
+                    <p>你输入的是: {{ message }}</p>
+                </div>
+            `
+        };
+
+        // 创建和挂载应用
+        const app = createApp(App);
+        app.mount('#app');
+    </script>
+
+    <style>
+        .test-container {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #42b883;
+        }
+        button {
+            background-color: #42b883;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #369870;
+        }
+        input {
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+    </style>
+</body>
+</html>
