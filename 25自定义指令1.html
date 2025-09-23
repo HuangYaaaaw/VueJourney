@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <p> 现在n的值是：
+        <h2 v-text="n"></h2>
+        </p>
+        <h2 v-big="n"></h2>
+        <button @click="n++">点击我使n变大</button>
+    </div>
+    <script>
+        new Vue({
+            el: '.root',
+            data: {
+                n: 1
+            },
+            directives: {
+                big(element, binding) {
+                    // binding封装了指令传递的值、参数、修饰符等信息
+                    element.innerText =binding.value*10
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

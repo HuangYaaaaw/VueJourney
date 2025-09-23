@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <h2 v-once>初始化n的值是：{{n}}</h2>
+        <h2>现在n的值是：{{n}}</h2>
+        <button @click="n++">点击使n的值加一</button>
+    </div>
+    <script>
+        new Vue({
+            el:'.root',
+            data:{
+                n:1
+            }
+        })
+    </script>
+</body>
+
+</html>

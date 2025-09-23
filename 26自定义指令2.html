@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <button>点击我生成输入框</button>
+        <p v-fbind="n">当前n的值是： <span></span></p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '.root',
+            data: {
+                n: 1
+            },
+            directives: {
+                fbind: {
+                    bind(el, binding) {
+                        // 初始化值
+                        const span = el.querySelector('span')
+                        if (span) span.innerText = binding.value
+
+                        // 监听按钮点击
+                        document.querySelector('button').addEventListener('click', function () {
+                            const input = document.createElement('input')
+                            document.querySelector('.root').appendChild(input)
+                            input.focus() // 直接聚焦
+                        })
+                    },
+                    update(el, binding) {
+                        const span = el.querySelector('span')
+                        if (span) span.innerText = binding.value
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

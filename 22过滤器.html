@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+    <script src="../dayjs.min.js"></script>
+</head>
+<body>
+    <div class="root">
+        <span>现在的时间是：{{time | timeFormater | mySlice}}</span>
+    </div>
+    <script>
+        let nowTime=+new Date()
+        new Vue({
+            el:'.root',
+            data:{
+                time:nowTime
+            },
+            filters:{
+                timeFormater(value){
+                    return dayjs(value).format('YYYY-MM-DD HH:mm:ss')
+                    //filters里面的this指向undefined
+                },
+                mySlice(value){
+                    return value.slice(0,4)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
