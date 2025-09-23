@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <span :style="{opacity:opacity}">欢迎光临</span>
+        <button @click="close">关闭动态</button>
+    </div>
+    <script>
+        let n;
+        const vm = new Vue({
+            el: '.root',
+            data: {
+                opacity: 1
+            },
+            mounted() {
+                n = setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <= 0) {
+                        this.opacity = 1
+                    }
+                }, 16)
+            },
+            beforeDestroy() {
+                closeInterval(n)
+                // 往往在这里取消订阅，关闭定时器
+            },
+            methods: {
+                close() {
+                    vm.$destroy()
+                    // 摧毁vm实例，但是之前vm所拥有的会留下来
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

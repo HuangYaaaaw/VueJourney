@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <vc></vc>
+    </div>
+    <script>
+        const vc = Vue.extend({
+            data() {
+                return {
+                    name: '小明',
+                    age: 19
+                }
+            },
+            template:`<div><span>{{name}}-----{{age}}</span></div>`
+        })
+        //这里的vm相当于构造函数
+        const vm = new Vue({
+            el: '.root',
+            components: {
+                vc
+            }
+        })
+        console.log(Vue.prototype === vm.__proto__);
+        console.log('------------');
+        console.log(Vue.prototype===Vue.component.__proto__);
+        
+        
+    </script>
+</body>
+
+</html>

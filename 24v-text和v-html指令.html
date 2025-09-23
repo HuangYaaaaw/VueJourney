@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+<body>
+    <div class="root">
+        <h2 v-text="str2">会被替代吗</h2>
+        <h2 v-html="str">会被替代吗</h2>
+    <!-- v-html可以生成节点结构，但是会替代掉原本里面的内容 -->
+     <!-- v-text不能够解析节点，也会替代掉文本里面的内容 -->
+    </div>
+    <script>
+        new Vue({
+            el:'.root',
+            data:{
+                str:'<a href="http://www.baidu.com">点击我打开百度</a>',
+                str2:'这是一段文字'
+            }
+        })
+    </script>
+</body>
+</html>

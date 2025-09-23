@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <span>n的值是：{{n}}</span>
+        <button @click="change">点击添加n的值</button>
+        <template>
+            <span v-if="n===1">你好</span>
+            <span v-else-if="n===2">我的名字叫做:</span>
+            <span v-else-if="n===3">小明</span>
+        </template>
+    </div>
+    <script>
+        const vm=new Vue({
+            el:'.root',
+            data:{
+                n:0
+            },
+            methods: {
+                change(){
+                    this.n++
+                    if(this.n>3)
+                {
+                    this.n=1
+                }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

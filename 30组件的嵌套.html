@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <school></school>
+        <hello></hello>
+    </div>
+    <script>
+        const student=Vue.extend({
+            data(){
+                return {
+                    stName:'小明',
+                    age:19
+                }
+            },
+            template:`<div>{{stName}}and{{age}}</div>`
+        })
+        const hello=Vue.extend({
+            data(){
+                return {
+                    str:'你好，我的名字叫做小学生'
+                }
+            }
+            ,
+            template:`<div>{{str}}</div>`
+        })
+        const school = Vue.extend({
+            data() {
+                return {
+                    schoolName: '光明小学',
+                    schoolAddress: '湖南省'
+                }
+            },
+            template: `<div><span>{{schoolName}}</span><span>{{schoolAddress}}</span><student></student></div>`,
+            components:{
+                student
+            }
+            // conponents有s,extend没有s(因为它是动词)
+        })
+        new Vue({
+            el: '.root',
+            components: {
+                school,
+                hello
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

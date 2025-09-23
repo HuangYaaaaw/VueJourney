@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.js"></script>
+    <style>
+        .itscolor{
+            color:red
+        }
+        .itssize{
+            font-size:large;
+        }
+        .itsstyle{
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <span id="root" :class="{itscolor,itssize,itsstyle}">你好</span>
+    <script>
+        const vm=new Vue({
+            el:'#root',
+            data:{
+                itscolor:false,
+                itssize:false,
+                itsstyle:false
+              }
+                })
+    </script>
+</body>
+</html>
