@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {a} from '../mixin'
 export default {
     name:'MyStudent',
     data(){
@@ -22,7 +23,12 @@ export default {
         type:Number,
         required:true
     }
+   },
+   mixins:[a],
+   created(){
+    console.log(a)
    }
+
 
 }
 </script>
